@@ -1,22 +1,25 @@
 from django.shortcuts import redirect, render
-
+from .forms import AddTaskForm
 # Create your views here.
 
-tasks = ["chier","pisser","aller dormir","manger",]
-
 def index(request):
+    if "tasks" not in request.session:
+        request.session["tasks"] = []
     context = {
-        "tasks" : tasks
+        "tasks" : request.session["tasks"]
     }
     return render(request, 'taches/index.html', context)
 
 def add_task(request):
-    if (request.method == 'POST'):
-        task = request.POST["task"]
-        tasks.append(task)
-        return redirect("taches_index")
-    task = "bouger"
     context = {
-        "task" : task
+        "form" : AddTaskForm()
     }
+    if (request.method == 'POST'):
+        form = AddTaskForm(request.POST)
+        if form.is_valid():
+            task = form.cleaned_data["task"]
+            request.session["tasks"] += [task]
+            return redirect("taches_index")
+        else:
+            return render(request, 'taches/add_task.html', context)    
     return render(request, 'taches/add_task.html', context)
