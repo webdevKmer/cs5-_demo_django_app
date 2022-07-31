@@ -1,0 +1,12 @@
+{% extends 'bonjour/layout.html' %}
+{% block title %} Bonjour
+{% endblock %}
+
+{% block main %}
+    {% if name %}
+        <h2>Bonjour {{ name }}.</h2>
+    {% else %}
+        <h2>Bonjour tout le monde.</h2>
+        <p>Ecrivez votre nom dans la barre d'adresse, a la suite de 'bonjour/' pour etre salue convenablement.</p>
+    {% endif %}
+{% endblock %}

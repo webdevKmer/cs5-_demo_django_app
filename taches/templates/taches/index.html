@@ -1,0 +1,15 @@
+{% extends 'bonjour/layout.html' %}
+{% block title %} Taches
+{% endblock %}
+
+{% block main %}
+    <h2>Liste des taches</h2>
+    <a href="{% url 'add_task' %}">Ajouter une tache</a>
+    <ul class="tasks">
+    {% for task in tasks %}
+    <li>{{ task }}</li>
+    {% empty %}
+        <h3>Pas de taches...</h3>
+    {% endfor%}
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'bonjour/layout.html' %}
+{% block title %} Add Task
+{% endblock %}
+
+{% block main %}
+    <h3>Ajouter une tache</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="task" placeholder="Ajouter une tache">
+        <input type="submit" value="Ajouter">
+    </form>
+
+{% endblock %}

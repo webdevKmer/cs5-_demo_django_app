@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo App - {% block title %}
+        {% endblock %} </title>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'bonjour_index' %}">Bonjour</a></li>
+                <li><a href="{% url 'bonneannee_index' %}">Happy New Year</a></li>
+                <li><a href="{% url 'taches_index' %}">Taches</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <section id="main">
+        {% block main %}
+        {% endblock %}
+    </section>
+    <hr>
+    <footer><h5>Well Designed by &copy; webdevKmer - 2022</h5></footer>
+</body>
+</html>

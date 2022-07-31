@@ -1,0 +1,11 @@
+{% extends 'bonjour/layout.html' %}
+{% block title %} Happy New Year
+{% endblock %}
+
+{% block main %}
+    {% if newyear %}
+        <h2>Happy New Year!!</h2>
+    {% else %}
+        <h2>Nous sommes le {{day}}/{{month}}/{{year}} </h2>
+    {% endif %}
+{% endblock %}
