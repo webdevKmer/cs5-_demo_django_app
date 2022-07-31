@@ -1,1 +1,1 @@
-# cs5-_demo_django_app
+# cs50_demo_django_app
